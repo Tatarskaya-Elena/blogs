@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import PageLayout from '../../parts/PageLayout'
+import PageLayout from '../../parts/PageLayout';
 import { mapActions } from 'vuex';
 import HeaderTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/HeaderTatarskayaFedotova.vue";
 import FooterTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/FooterTatarskayaFedotova.vue";
@@ -45,7 +45,7 @@ export default {
     HeaderTatarskayaFedotova,
     PageLayout
   },
-  data() {
+  data () {
     return {
       image: '',
       date:'',
@@ -100,6 +100,7 @@ export default {
     font-size: 14px;
     text-align: center;
   }
+
   &__button {
     background-color: transparent;
     border: 1px solid grey;

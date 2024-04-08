@@ -51,11 +51,11 @@ export default {
       type: String,
       default: ''
     },
-    title:{
+    title: {
       type: String,
       default: ''
     },
-    text:{
+    text: {
       type: String,
       default: ''
     }

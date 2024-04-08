@@ -36,10 +36,10 @@
 </template>
 
 <script>
-import ButtonTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/ButtonTatarskayaFedotova.vue"
-import SlideButtonTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/SlideButtonTatarskayaFedotova.vue"
-import { mapGetters, mapActions } from 'vuex'
-import { RouteNames } from "@/router/routes"
+import ButtonTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/ButtonTatarskayaFedotova.vue";
+import SlideButtonTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/SlideButtonTatarskayaFedotova.vue";
+import { mapGetters, mapActions } from 'vuex';
+import { RouteNames } from "@/router/routes";
 
 export default {
   name: 'FirstCardTatarskayaFedotova',
@@ -67,7 +67,7 @@ export default {
       'getFirstTypeNews'
     ]),
     routeNames () {
-      return RouteNames
+      return RouteNames;
     }
   },
   methods: {
@@ -79,7 +79,7 @@ export default {
       this.$emit('changeSlideIndex', index);
     },
     incrementCount (index) {
-      this.incrementButtonValue(index)
+      this.incrementButtonValue(index);
     }
   }
 };

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import PageLayout from '../../parts/PageLayout'
+import PageLayout from '../../parts/PageLayout';
 import HeaderTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/HeaderTatarskayaFedotova.vue";
 import FooterTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/FooterTatarskayaFedotova.vue";
 
@@ -58,6 +58,7 @@ export default {
     margin: 0 auto;
     padding: 10px;
   }
+
   &__discribe {
     padding: 10px;
     text-align: justify;
