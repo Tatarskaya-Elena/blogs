@@ -66,7 +66,7 @@ export default {
     ]),
     routeNames () {
       return RouteNames;
-    },
+    }
   },
   methods: {
     ...mapActions("buttonTatarskayaFedotova", [
