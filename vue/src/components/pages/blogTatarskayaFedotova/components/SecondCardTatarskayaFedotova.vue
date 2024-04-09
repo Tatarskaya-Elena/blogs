@@ -1,0 +1,128 @@
+﻿<template>
+  <div class="second-card">
+    <img 
+      :src="image" 
+      alt="Card Image" 
+      class="second-card__image" 
+    />
+    <p class="second-card__date">POSTED ON {{ date }}</p>
+    <h2 class="second-card__title">{{ title }}</h2>
+    <p class="second-card__text">{{ text }}</p>
+    <div class="second-card__buttons">
+      <ButtonTatarskayaFedotova @click="() => incrementCount('like')">
+        <img
+          src="https://img.icons8.com/ios-glyphs/30/737373/like--v1.png"
+          alt="like-icon"
+          class="second-card__buttons__image"
+        />
+        {{ getButtonValues.like }}
+      </ButtonTatarskayaFedotova>
+      <ButtonTatarskayaFedotova @click="() => incrementCount('comment')">
+        <img
+          src="https://img.icons8.com/ios-filled/50/737373/speech-bubble--v1.png"
+          alt="comment-icon"
+          class="second-card__buttons__image"
+        />
+        {{ getButtonValues.comment }}
+      </ButtonTatarskayaFedotova>
+      <RouterLink :to="{ name: routeNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA }">
+        <ButtonTatarskayaFedotova />
+      </RouterLink>
+    </div>
+  </div>
+</template>
+
+<script>
+import ButtonTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/ButtonTatarskayaFedotova.vue";
+import { mapGetters, mapActions } from "vuex";
+import { RouteNames } from "../../../../router/routes";
+
+export default {
+  name: "SecondCardTatarskayaFedotova",
+  components: {
+    ButtonTatarskayaFedotova,
+  },
+  props: {
+    image: {
+      type: String,
+      default: 'image'
+    },
+    date: {
+      type: String,
+      default: ''
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    text: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    ...mapGetters("buttonTatarskayaFedotova", [
+      "getButtonValues"
+    ]),
+    routeNames () {
+      return RouteNames;
+    }
+  },
+  methods: {
+    ...mapActions("buttonTatarskayaFedotova", [
+      "incrementButtonValue"
+    ]),
+    incrementCount (index) {
+      this.incrementButtonValue(index);
+    }
+  }
+};
+</script>
+
+<style lang="less" scoped>
+.second-card {
+  display: inline-block;
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  font-family: "Calibri", sans-serif;
+  font-size: 10px;
+  color: #938787;
+  background-color: #ffffff;
+
+  &__date {
+    margin: 0 10px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+
+  &__title {
+    padding: 0 10px;
+    font-size: 14px;
+    color: #504040;
+    font-family: "Calibri", sans-serif;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+
+    &__image {
+      height: 12px;
+      width: 12px;
+    }
+  }
+}
+</style>
