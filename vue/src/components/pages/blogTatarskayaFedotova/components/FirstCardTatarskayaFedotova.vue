@@ -20,7 +20,7 @@
           />
           {{ getButtonValues.comment }}
         </ButtonTatarskayaFedotova>
-        <RouterLink :to="{ name: routeNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA }">
+        <RouterLink :to="{ name: routeNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA, params: { id:currentNews['id'] } }">
           <ButtonTatarskayaFedotova />
         </RouterLink>
       </div>
