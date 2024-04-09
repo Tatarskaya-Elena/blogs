@@ -25,7 +25,7 @@
         />
         {{ getButtonValues.comment }}
       </ButtonTatarskayaFedotova>
-      <RouterLink :to="{ name: routeNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA }">
+      <RouterLink :to="{ name: routeNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA, params: { id:id } }">
         <ButtonTatarskayaFedotova />
       </RouterLink>
     </div>
@@ -43,6 +43,10 @@ export default {
     ButtonTatarskayaFedotova,
   },
   props: {
+    id: {
+      type: Number,
+      require: 'true'
+    },
     image: {
       type: String,
       default: 'image'

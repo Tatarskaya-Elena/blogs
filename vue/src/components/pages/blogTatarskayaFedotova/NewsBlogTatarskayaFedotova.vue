@@ -2,18 +2,14 @@
   <PageLayout>
     <HeaderTatarskayaFedotova/>
     <div class="news-block">
-      <p class="news-block__date">POSTED ON 26 MARCH 2024</p>
-      <h2 class="news-block__title">LONG TIME JOURNEY</h2>
+      <p class="news-block__date">POSTED ON {{getNewsById(this.$route.params.id).date}}</p>
+      <h2 class="news-block__title">{{getNewsById(this.$route.params.id).title}}</h2>
       <img 
-        src="https://img.freepik.com/premium-photo/a-desert-scene-with-camels-and-a-sunset_900396-13267.jpg" 
+        :src="getNewsById(this.$route.params.id).image" 
         alt="Card Image" 
         class="news-block__image"
       />
-      <p class="news-block__discribe">
-        Lorem ipsum dolor sit amet, cotuer adipising elit, sed diam n
-        my nibh euismod tincidunt ut I dolore manga allquam erat vol.
-        Ut wisi enim ad minim veniam nostrud exerct tation ullamcor.
-      </p>
+      <p class="news-block__discribe"> {{getNewsById(this.$route.params.id).text}}</p>
     </div>
     <FooterTatarskayaFedotova/>
   </PageLayout>
@@ -23,6 +19,7 @@
 import PageLayout from '../../parts/PageLayout';
 import HeaderTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/HeaderTatarskayaFedotova.vue";
 import FooterTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/FooterTatarskayaFedotova.vue";
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'NewsBlogTatarskayaFedotova',
@@ -30,6 +27,11 @@ export default {
     FooterTatarskayaFedotova,
     HeaderTatarskayaFedotova,
     PageLayout
+  },
+  computed: {
+    ...mapGetters("newsStoreTatarskayaFedotova", [
+      "getNewsById"
+    ])
   }
 }
 </script>

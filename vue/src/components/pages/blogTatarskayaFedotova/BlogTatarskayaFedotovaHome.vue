@@ -11,6 +11,7 @@
       <SecondCardTatarskayaFedotova
         v-for="news in filteredNews"
         :key="news.id"
+        :id="news.id"
         :image="news.image"
         :date="news.date"
         :title="news.title"

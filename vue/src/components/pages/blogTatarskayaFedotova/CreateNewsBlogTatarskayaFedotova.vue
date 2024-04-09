@@ -4,27 +4,27 @@
     <div class="block">
       <h2 class="block__text">DATE</h2>
       <input 
+        v-model="date"
         class="block__input" 
         type="text" 
-        v-model="date"
       />
       <h2 class="block__text">TITLE</h2>
       <input 
+        v-model="title"
         class="block__input" 
         type="text" 
-        v-model="title"
       />
       <h2 class="block__text">IMAGE</h2>
       <input 
+        v-model="image"
         class="block__input" 
         type="text" 
-        v-model="image"
       />
       <h2 class="block__text">TEXT</h2>
       <input 
+        v-model="text"
         class="block__input" 
         type="text" 
-        v-model="text"
       />
       <button class="block__button" @click="() => createNews()">CREATE</button>
     </div>
@@ -34,7 +34,7 @@
 
 <script>
 import PageLayout from '../../parts/PageLayout';
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import HeaderTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/HeaderTatarskayaFedotova.vue";
 import FooterTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/FooterTatarskayaFedotova.vue";
 
@@ -53,12 +53,18 @@ export default {
       text: ''
     };
   },
+  computed: {
+    ...mapGetters("newsStoreTatarskayaFedotova", [
+      "getLastIndex"
+    ])
+  },
   methods: {
     ...mapActions('newsStoreTatarskayaFedotova', [
       'addNews'
     ]),
     createNews () {
       const newNews = {
+        id: this.getLastIndex,
         date: this.date,
         title: this.title,
         image: this.image,

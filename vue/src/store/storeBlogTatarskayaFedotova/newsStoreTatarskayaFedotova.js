@@ -36,7 +36,7 @@ export default {
         id: 1,
         date: '26 MARCH 2024',
         title: 'Above nothing',
-          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8vqdFUFR0K6fud0haT9TANU4ctBZb2obxrg&s',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8vqdFUFR0K6fud0haT9TANU4ctBZb2obxrg&s',
         text: 'Lorem ipsum dolor sit amet, cotuer adipising elit, sed diam nmy nibh euismod tincidunt ut'
       },
       {
@@ -85,7 +85,9 @@ export default {
   },
   getters: {
     getFirstTypeNews: state => state.firstTypeNewsList,
-    getFilteredNews: state => searchKeyword => state.secondTypeNewsList.filter(news => news.title.toLowerCase().includes(searchKeyword.toLowerCase()))
+    getNewsById: state => indexId =>state.secondTypeNewsList[indexId],
+    getFilteredNews: state => searchKeyword => state.secondTypeNewsList.filter(news => news.title.toLowerCase().includes(searchKeyword.toLowerCase())),
+    getLastIndex: state => state.secondTypeNewsList.length
   },
   mutations: {
     addNews (state, news) {

@@ -25,7 +25,7 @@ const routes = [
     component: NewsBlogTatarskayaFedotova
   },
   {
-    path: '/create_news_blog_Tatarskaya_Fedotova',
+    path: '/create_news_blog_Tatarskaya_Fedotova/:id',
     name: RouteNames.CREATE_NEWS_BLOG_TATARSKAYA_FEDOTOVA,
     component: CreateNewsBlogTatarskayaFedotova
   }
