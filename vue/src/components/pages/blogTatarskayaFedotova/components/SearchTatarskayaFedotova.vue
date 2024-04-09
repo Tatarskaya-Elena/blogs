@@ -11,10 +11,10 @@
     </el-select>
     <h2 class="container__label">NEWEST ARTICLES</h2>
     <input 
+      v-model="inputData"
       type="text" 
       placeholder="SEARCH BY KEYWORDS" 
       class="container__search-input"
-      v-model="inputData"
     >
     <el-button 
       class="container__button" 
@@ -30,15 +30,22 @@ export default {
   name: 'SearchTatarskayaFedotova',
   data () {
     return {
-      options: [{
-        value: 'Option1',
-        label: 'Option1'
-      }, {
-        value: 'Option2',
-        label: 'Option2'
-      }],
       value: '',
       inputData: ''
+    }
+  },
+  computed: {
+    options() {
+      return [
+        {
+          value: 'Option1',
+          label: 'Option1'
+        },
+        {
+          value: 'Option2',
+          label: 'Option2'
+        }
+      ]
     }
   },
   methods: {

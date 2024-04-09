@@ -5,43 +5,55 @@
     </div>
     <nav class="header__nav-links">
       <RouterLink
-        to="/BLOG_TATARSKAYA_FEDOTOVA_HOME"
-        class="header__nav-links__nav-link"
-        :class="{ active: $route.path === '/BLOG_TATARSKAYA_FEDOTOVA_HOME' }"
+        :to="{ name: routeNames.BLOG_TATARSKAYA_FEDOTOVA_HOME }"
+        class="header__nav-link"
+        :class="{ 'header__nav-link--active': $route.name === routeNames.BLOG_TATARSKAYA_FEDOTOVA_HOME }"
       >
         Blog
       </RouterLink>
       <RouterLink
         to="/articles"
-        class="header__nav-links__nav-link"
-        :class="{ active: $route.path === '/articles' }"
+        class="header__nav-link"
+        :class="{ 'header__nav-link--active': $route.path === '/articles' }"
       >
         Articles
       </RouterLink>
       <RouterLink
         to="/gallery"
-        class="header__nav-links__nav-link"
-        :class="{ active: $route.path === '/gallery' }"
+        class="header__nav-link"
+        :class="{ 'header__nav-link--active': $route.path === '/gallery' }"
       >
         Gallery
       </RouterLink>
       <RouterLink
         to="/contact"
-        class="header__nav-links__nav-link"
-        :class="{ active: $route.path === '/contact' }"
+        class="header__nav-link"
+        :class="{ 'header__nav-link--active': $route.path === '/contact' }"
       >
         Contact
       </RouterLink>
       <RouterLink
-        to="/CREATE_NEWS_BLOG_TATARSKAYA_FEDOTOVA"
-        class="header__nav-links__nav-link"
-        :class="{ active: $route.path === '/CREATE_NEWS_BLOG_TATARSKAYA_FEDOTOVA' }"
+        :to="{ name: routeNames.CREATE_NEWS_BLOG_TATARSKAYA_FEDOTOVA }"
+        class="header__nav-link"
+        :class="{ 'header__nav-link--active': $route.name === routeNames.CREATE_NEWS_BLOG_TATARSKAYA_FEDOTOVA }"
       >
         Create Post
       </RouterLink>
     </nav>
   </div>
 </template>
+
+<script>
+import { RouteNames } from "@/router/routes";
+
+export default {
+  computed: {
+    routeNames() {
+      return RouteNames
+    }
+  }
+}
+</script>
 
 <style scoped lang="less">
 .header {
@@ -77,17 +89,17 @@
 
   &__nav-links {
     display: flex;
+  }
 
-    &__nav-link {
-      margin-left: 18px;
-      color: gray;
-      letter-spacing: 1px;
-      font-weight: 600;
-      font-size: 12px;
+  &__nav-link {
+    margin-left: 18px;
+    color: gray;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 12px;
 
-      &.active {
-        color: black;
-      }
+    &--active {
+      color: black;
     }
   }
 }

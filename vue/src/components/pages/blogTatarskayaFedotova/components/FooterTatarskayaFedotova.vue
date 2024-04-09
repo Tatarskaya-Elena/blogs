@@ -6,36 +6,48 @@
     </div>
     <nav class="footer__nav-links">
       <RouterLink
-        to="/BLOG_TATARSKAYA_FEDOTOVA_HOME"
-        class="footer__nav-links__nav-link"
-        :class="{ active: $route.path === '/BLOG_TATARSKAYA_FEDOTOVA_HOME' }"
+        :to="{ name: routeNames.BLOG_TATARSKAYA_FEDOTOVA_HOME }"
+        class="footer__nav-link"
+        :class="{ 'footer__nav-link--active': $route.name === routeNames.BLOG_TATARSKAYA_FEDOTOVA_HOME }"
       >
         Blog
       </RouterLink>
       <RouterLink
         to="/categories" 
-        class="footer__nav-links__nav-link"
-        :class="{ active: $route.path === '/categories' }"
+        class="footer__nav-link"
+        :class="{ 'footer__nav-link--active': $route.path === '/categories' }"
       >
         Categories
       </RouterLink>
       <RouterLink
         to="/gallery"
-        class="footer__nav-links__nav-link"
-        :class="{ active: $route.path === '/gallery' }"
+        class="footer__nav-link"
+        :class="{ 'footer__nav-link--active': $route.path === '/gallery' }"
       >
         Gallery
       </RouterLink>
       <RouterLink
         to="/contact"
-        class="footer__nav-links__nav-link"
-        :class="{ active: $route.path === '/contact' }"
+        class="footer__nav-link"
+        :class="{ 'footer__nav-link--active': $route.path === '/contact' }"
       >
         Contact
       </RouterLink>
     </nav>
   </div>
 </template>
+
+<script>
+import { RouteNames } from "@/router/routes";
+
+export default {
+  computed: {
+    routeNames() {
+      return RouteNames
+    }
+  }
+}
+</script>
 
 <style scoped lang="less">
 .footer {
@@ -64,15 +76,15 @@
 
   &__nav-links {
     display: flex;
+  }
 
-    &__nav-link {
-      margin-left: 18px;
-      color: gray;
-      font-weight: 600;
+  &__nav-link {
+    margin-left: 18px;
+    color: gray;
+    font-weight: 600;
 
-      &.active {
-        color: black;
-      }
+    &--active {
+      color: black;
     }
   }
 }

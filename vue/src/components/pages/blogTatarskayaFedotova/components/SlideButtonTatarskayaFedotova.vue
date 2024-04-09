@@ -1,19 +1,27 @@
 <template>
-  <div class="slider-container">
+  <div class="slider">
     <div
       v-for="(slide, index) in slides"
       :key="index"
-      :class="{ active: currentSlide === index}"
-      class="slider-container__slider-circle"
-      @click="() => { currentSlide !== index && changeSlide(index) }"
+      :class="{ 'slider__circle--active': currentSlide === index }"
+      class="slider__circle"
+      @click="() => { handleClick(index) }"
     ></div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['slides', 'currentSlide'],
+  props: {
+    slides: Array,
+    currentSlide: Number
+  },
   methods: {
+    handleClick(index) {
+      if (this.currentSlide !== index) {
+        this.changeSlide(index);
+      }
+    },
     changeSlide (index) {
       this.$emit('changeSlideIndex', index);
     }
@@ -22,12 +30,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.slider-container {
+.slider {
   display: flex;
   flex-direction: row;
   align-items: center;
 
-  &__slider-circle {
+  &__circle {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -36,7 +44,7 @@ export default {
     background-color: lightgrey;
     transition: background-color 0.3s;
 
-    &.active {
+    &--active {
       background-color: white;
     }
   }
