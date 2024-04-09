@@ -91,15 +91,16 @@ export default {
     display: flex;
   }
 
-  &__nav-link {
-    margin-left: 18px;
-    color: gray;
-    letter-spacing: 1px;
-    font-weight: 600;
-    font-size: 12px;
+    &__nav-link {
+      margin-left: 18px;
+      color: gray;
+      letter-spacing: 1px;
+      font-weight: 600;
+      font-size: 12px;
 
     &--active {
-      color: black;
+        color: black;
+      }
     }
   }
 }

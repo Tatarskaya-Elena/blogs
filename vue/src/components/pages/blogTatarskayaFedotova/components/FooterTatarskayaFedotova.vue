@@ -78,13 +78,14 @@ export default {
     display: flex;
   }
 
-  &__nav-link {
-    margin-left: 18px;
-    color: gray;
-    font-weight: 600;
+    &__nav-link {
+      margin-left: 18px;
+      color: gray;
+      font-weight: 600;
 
     &--active {
-      color: black;
+        color: black;
+      }
     }
   }
 }
