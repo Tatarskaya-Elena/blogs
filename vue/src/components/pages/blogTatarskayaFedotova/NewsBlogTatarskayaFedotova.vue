@@ -2,14 +2,14 @@
   <PageLayout>
     <HeaderTatarskayaFedotova/>
     <div class="news-block">
-      <p class="news-block__date">POSTED ON {{getNewsById(this.$route.params.id).date}}</p>
-      <h2 class="news-block__title">{{getNewsById(this.$route.params.id).title}}</h2>
+      <p class="news-block__date">POSTED ON {{getSecondTypeNews.date}}</p>
+      <h2 class="news-block__title">{{getSecondTypeNews.title}}</h2>
       <img 
-        :src="getNewsById(this.$route.params.id).image" 
+        :src="getSecondTypeNews.image" 
         alt="Card Image" 
         class="news-block__image"
       />
-      <p class="news-block__discribe"> {{getNewsById(this.$route.params.id).text}}</p>
+      <p class="news-block__discribe">{{getSecondTypeNews.text}}</p>
     </div>
     <FooterTatarskayaFedotova/>
   </PageLayout>
@@ -19,7 +19,7 @@
 import PageLayout from '../../parts/PageLayout';
 import HeaderTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/HeaderTatarskayaFedotova.vue";
 import FooterTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/FooterTatarskayaFedotova.vue";
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'NewsBlogTatarskayaFedotova',
@@ -30,8 +30,16 @@ export default {
   },
   computed: {
     ...mapGetters("newsStoreTatarskayaFedotova", [
-      "getNewsById"
+      "getSecondTypeNews"
     ])
+  },
+  methods: {
+    ...mapActions('newsStoreTatarskayaFedotova', [
+      'loadDataById'
+    ])
+  },
+  created () {
+    this.loadDataById(this.$route.params.id);
   }
 }
 </script>

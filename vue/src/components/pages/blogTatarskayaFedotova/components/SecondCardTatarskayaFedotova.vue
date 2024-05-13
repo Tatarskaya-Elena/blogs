@@ -1,13 +1,13 @@
 ﻿<template>
   <div class="second-card">
     <img 
-      :src="image" 
+      :src="card.image" 
       alt="Card Image" 
       class="second-card__image" 
     />
-    <p class="second-card__date">POSTED ON {{ date }}</p>
-    <h2 class="second-card__title">{{ title }}</h2>
-    <p class="second-card__text">{{ text }}</p>
+    <p class="second-card__date">POSTED ON {{ card.date }}</p>
+    <h2 class="second-card__title">{{ card.title }}</h2>
+    <p class="second-card__text">{{ card.text }}</p>
     <div class="second-card__buttons">
       <ButtonTatarskayaFedotova @click="() => incrementCount('like')">
         <img
@@ -25,7 +25,7 @@
         />
         {{ getButtonValues.comment }}
       </ButtonTatarskayaFedotova>
-      <RouterLink :to="{ name: routeNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA, params: { id:id } }">
+      <RouterLink :to="{ name: routeNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA, params: { id:card.id } }">
         <ButtonTatarskayaFedotova />
       </RouterLink>
     </div>
@@ -43,25 +43,9 @@ export default {
     ButtonTatarskayaFedotova,
   },
   props: {
-    id: {
-      type: Number,
-      require: 'true'
-    },
-    image: {
-      type: String,
-      default: 'image'
-    },
-    date: {
-      type: String,
-      default: ''
-    },
-    title: {
-      type: String,
-      default: ''
-    },
-    text: {
-      type: String,
-      default: ''
+    card: {
+      type: Object,
+      required: true
     }
   },
   computed: {

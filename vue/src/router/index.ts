@@ -20,12 +20,12 @@ const routes = [
     component: BlogTatarskayaFedotovaHome
    },
   {
-    path: '/news_blog_Tatarskaya_Fedotova',
+    path: '/news_blog_Tatarskaya_Fedotova/:id',
     name: RouteNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA,
     component: NewsBlogTatarskayaFedotova
   },
   {
-    path: '/create_news_blog_Tatarskaya_Fedotova/:id',
+    path: '/create_news_blog_Tatarskaya_Fedotova',
     name: RouteNames.CREATE_NEWS_BLOG_TATARSKAYA_FEDOTOVA,
     component: CreateNewsBlogTatarskayaFedotova
   }

@@ -9,13 +9,9 @@
     <SearchTatarskayaFedotova @search="(data) => handleSearch(data)" />
     <div class="card-grid">
       <SecondCardTatarskayaFedotova
-        v-for="news in filteredNews"
+        v-for="news in secondTypeNews"
         :key="news.id"
-        :id="news.id"
-        :image="news.image"
-        :date="news.date"
-        :title="news.title"
-        :text="news.text"
+        :card="news"
       />
     </div>
     <FooterTatarskayaFedotova />
@@ -29,7 +25,7 @@ import FirstCardTatarskayaFedotova from "@/components/pages/blogTatarskayaFedoto
 import SecondCardTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/SecondCardTatarskayaFedotova.vue";
 import SearchTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/SearchTatarskayaFedotova.vue";
 import FooterTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/FooterTatarskayaFedotova.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "BlogTatarskayaFedotovaHome",
@@ -50,13 +46,13 @@ export default {
   computed: {
     ...mapGetters("newsStoreTatarskayaFedotova", [
       "getFirstTypeNews",
-      "getFilteredNews",
+      "getSecondTypeNews"
     ]),
     firstTypeNews () {
       return this.getFirstTypeNews;
     },
-    filteredNews () {
-      return this.getFilteredNews(this.inputData);
+    secondTypeNews () {
+      return this.getSecondTypeNews; 
     },
     currentNews () {
       return this.firstTypeNews[this.currentSlide];
@@ -68,7 +64,16 @@ export default {
     },
     handleSearch (data) {
       this.inputData = data;
-    }
+      this.loadSecondList(this.inputData);
+    },
+    ...mapActions('newsStoreTatarskayaFedotova', [
+      'loadSecondList',
+      'loadFirstList'
+    ]),
+  },
+  created () {
+    this.loadSecondList(this.inputData);
+    this.loadFirstList();
   }
 };
 </script>

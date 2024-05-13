@@ -34,7 +34,7 @@
 
 <script>
 import PageLayout from '../../parts/PageLayout';
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 import HeaderTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/HeaderTatarskayaFedotova.vue";
 import FooterTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/FooterTatarskayaFedotova.vue";
 
@@ -53,18 +53,12 @@ export default {
       text: ''
     };
   },
-  computed: {
-    ...mapGetters("newsStoreTatarskayaFedotova", [
-      "getLastIndex"
-    ])
-  },
   methods: {
     ...mapActions('newsStoreTatarskayaFedotova', [
       'addNews'
     ]),
     createNews () {
       const newNews = {
-        id: this.getLastIndex,
         date: this.date,
         title: this.title,
         image: this.image,
